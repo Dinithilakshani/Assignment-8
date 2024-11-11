@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 1</title>
+    <style>
+        section{
+            display: flex;
+        }
+        section>div{
+            width: 100px;
+            aspect-ratio: 1/1;
+           
+            border-radius: 8px;
+            margin: 200px 60px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+    
+        }
+        section>div>img{
+            width: 200px;
+            height: auto;
+        }
+        body{
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <img src="/Images/person.gif">
+            <h1>A</h1>
+        </div>
+        <div>
+            <img src="/Images/person.gif">
+            <h1>B</h1>
+        </div>
+        <div>
+            <img src="/Images/person.gif">
+            <h1>C</h1>
+        </div>
+        <div>
+            <img src="/Images/person.gif">
+            <h1>D</h1>
+        </div>
+        <div>
+            <img src="/Images/person.gif">
+            <h1>E</h1>
+        </div>
+        <div>
+            <img src="/Images/person.gif">
+            <h1>F</h1>
+        </div>
+    
+        <div>
+            <img src="/Images/house.png">
+    
+        </div>
+    
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+        let array=["A","B","c","D","E","F"];
+        setInterval(()=>{
+            let last_value=array.pop();
+            array.unshift(last_value);
+            console.log(array);
+    
+            document.getElementsByTagName("h1")[0].innerText=array[0];
+            document.getElementsByTagName("h1")[1].innerText=array[1];
+            document.getElementsByTagName("h1")[2].innerText=array[2];
+            document.getElementsByTagName("h1")[3].innerText=array[3];
+            document.getElementsByTagName("h1")[4].innerText=array[4];
+            document.getElementsByTagName("h1")[5].innerText=array[5];
+        },2000);
+    </script>
+    
+</body>
+</html>

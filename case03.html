@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 3</title>
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .light-container {
+            display: flex;
+            gap: 5px;
+        }
+
+        .light {
+            width: 150px;
+            height: 80px;
+            background-color:wheat;
+            transition: opacity 0.3s;
+
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        #btn01 {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            color: white;
+            background-color: red;
+            width: 160px;
+            margin-right: 10%;
+        }
+        #btn02 {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            color: white;
+            background-color: rgb(11, 29, 197);
+            width: 160px;
+            margin-left: 8%;
+            margin-top: -2%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="light-container">
+        <div id="div1" class="light"></div>
+        <div id="div2" class="light"></div>
+        <div id="div3" class="light"></div>
+        <div id="div4" class="light"></div>
+        <div id="div5" class="light"></div>
+        <div id="div6" class="light"></div>
+    
+    </div>
+    <button id="btn01">Start</button>
+    
+    <button id="btn02">Stop</button>
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+    
+        const light_count = 6;
+        let current_light = 0;
+        let direction = "RIGHT";
+        let intervalId=null;
+    
+        updateLight = () =>{
+    
+            if(direction ==="RIGHT") {
+    
+                current_light++;
+                $(".light").css("background","white");
+                $(".light").eq(current_light).css("background", "red");
+                $(".light").eq(current_light-1).css("background", "pink");
+    
+                if (current_light==light_count-1){
+                    direction="LEFT"
+                }
+            }else{
+                current_light--;
+                $(".light").css("background","white");
+                $(".light").eq(current_light).css("background", "red");
+                $(".light").eq(current_light+1).css("background", "pink");
+    
+                if (current_light===0){
+                    direction="RIGHT";
+                }
+            }
+        }
+    
+    
+        $("#btn01").on("click",function (){
+            intervalId=setInterval(updateLight,100);
+        });
+    
+        $("#btn02").on("click",function (){
+            clearInterval(intervalId);
+        });
+    
+    </script>
+    
+</body>
+</html>
